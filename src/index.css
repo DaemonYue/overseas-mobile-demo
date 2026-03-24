@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100px;
+}
+@media screen and (max-width:750px){
+  html { font-size: calc(100vw / 7.5); }
+}
+
+body {
+  font-size: 0.14rem;
+  background: #f5f5f5;
+}
+
+.app-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0.2rem;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.lang-switch button {
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #007aff;
+  border-radius: 0.05rem;
+  background: #fff;
+  color: #007aff;
+}
+
+.lang-switch button.active {
+  background: #007aff;
+  color: #fff;
+}
+
+/* 用户列表样式 */
+.user-list {
+  background-color: #fff;
+  border-radius: 0.1rem;
+  padding: 0.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.user-list h2 {
+  font-size: 0.18rem;
+  margin-bottom: 0.15rem;
+  color: #1a1a1a;
+}
+
+.user-item {
+  padding: 0.15rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.user-item:last-child {
+  border-bottom: none;
+}
+
+/* 表单样式 */
+.user-form {
+  background-color: #fff;
+  border-radius: 0.1rem;
+  padding: 0.2rem;
+}
+
+.user-form h2 {
+  font-size: 0.18rem;
+  margin-bottom: 0.15rem;
+  color: #1a1a1a;
+}
+
+.form-item {
+  margin-bottom: 0.15rem;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 0.05rem;
+  font-size: 0.14rem;
+  color: #666;
+}
+
+.form-item input {
+  width: 100%;
+  padding: 0.1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.05rem;
+  font-size: 0.14rem;
+}
+
+.form-item button {
+  width: 100%;
+  padding: 0.12rem;
+  border: none;
+  border-radius: 0.05rem;
+  background-color: #007aff;
+  color: #fff;
+  font-size: 0.16rem;
+  cursor: pointer;
+}

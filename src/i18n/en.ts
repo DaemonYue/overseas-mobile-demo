@@ -1,0 +1,13 @@
+export default {
+  language: "Language",
+  chinese: "Chinese",
+  english: "English",
+  userList: "User List",
+  userName: "User Name",
+  userEmail: "Email",
+  userForm: "Add User",
+  inputName: "Please enter user name",
+  inputEmail: "Please enter email",
+  submit: "Submit",
+  submitSuccess: "Submit successfully!"
+};

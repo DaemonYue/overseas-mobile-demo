@@ -1,0 +1,13 @@
+export default {
+  language: "语言",
+  chinese: "中文",
+  english: "English",
+  userList: "用户列表",
+  userName: "用户名",
+  userEmail: "邮箱",
+  userForm: "添加用户",
+  inputName: "请输入用户名",
+  inputEmail: "请输入邮箱",
+  submit: "提交",
+  submitSuccess: "提交成功！"
+};
