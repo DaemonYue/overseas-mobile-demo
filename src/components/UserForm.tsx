@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-// 定义表单数据类型
-interface FormData {
-  name: string;
-  email: string;
+import { FormData } from "../typings/user";
+
+interface UserFormProps {
+  setNewUser: (user:FormData) => void;
 }
 
-const UserForm: React.FC = () => {
+const UserForm: React.FC<UserFormProps> = (props) => {
   const { t } = useTranslation();
   
   // 1. 表单数据
@@ -17,16 +17,20 @@ const UserForm: React.FC = () => {
     email: ""
   });
 
+  const { setNewUser } = props;
+
   // 2. 输入框变化时更新数据
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     // 解构赋值，只更新变化的字段
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
+    };
 
   // 3. 提交表单
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // 阻止页面刷新
+    setNewUser(formData);
+
     alert(t("submitSuccess")); // 多语言提示
     // 提交后清空表单
     setFormData({ name: "", email: "" });

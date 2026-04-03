@@ -1,9 +1,9 @@
-import React from "react";
+// import React from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "./components/LanguageSwitch";
 
-import UserList from "./components/UserList";
-import UserForm from "./components/UserForm";
+import Users from "./components/Users";
+import Count from "./components/Count";
 
 function App() {
   const { t } = useTranslation();
@@ -11,8 +11,8 @@ function App() {
     <div className="app-container">
       <LanguageSwitch />
       <h2>{t("language")}</h2>
-      <UserList />
-      <UserForm />
+      <Users />
+      <Count />
     </div>
   );
 }

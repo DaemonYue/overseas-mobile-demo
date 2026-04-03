@@ -2,23 +2,18 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-// 定义用户类型（TS核心，面试能说清）
-interface User {
-  id: number;
-  name: string;
-  email: string;
+import { UserType } from "../typings/user";
+
+interface UserListProps {
+  users: UserType[];
 }
 
-const UserList: React.FC = () => {
+
+const UserList: React.FC<UserListProps> = (props) => {
   // 引入国际化
   const { t } = useTranslation();
-  
-  // 模拟海外用户数据（贴合出海业务场景）
-  const users: User[] = [
-    { id: 1, name: "Alex Smith", email: "alex@example.com" },
-    { id: 2, name: "Maria Garcia", email: "maria@example.com" },
-    { id: 3, name: "Li Wei", email: "liwei@example.com" }
-  ];
+
+  const { users } = props;
 
   return (
     <div className="user-list">
