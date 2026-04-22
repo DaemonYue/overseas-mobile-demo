@@ -9,5 +9,7 @@ export default {
   inputName: "请输入用户名",
   inputEmail: "请输入邮箱",
   submit: "提交",
-  submitSuccess: "提交成功！"
+  submitSuccess: "提交成功！",
+  delete: "删除",
+  deleteConfirm: "确定删除用户吗？",
 };

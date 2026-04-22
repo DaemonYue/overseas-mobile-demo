@@ -9,5 +9,7 @@ export default {
   inputName: "Please enter user name",
   inputEmail: "Please enter email",
   submit: "Submit",
-  submitSuccess: "Submit successfully!"
+  submitSuccess: "Submit successfully!",
+  delete: "Delete",
+  deleteConfirm: "",
 };

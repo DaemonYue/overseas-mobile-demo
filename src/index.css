@@ -56,12 +56,26 @@ body {
 }
 
 .user-item {
+  display: flex;
+  justify-content: space-between;
   padding: 0.15rem 0;
   border-bottom: 1px solid #eee;
 }
 
 .user-item:last-child {
   border-bottom: none;
+}
+
+.user-delete {
+  display: flex;
+}
+
+.del-btn {
+  border: 1px solid #999;
+  border-radius: 0.05rem;
+  padding: 0.05rem 0.1rem;
+  margin: auto;
+  cursor: pointer;
 }
 
 /* 表单样式 */

@@ -2,10 +2,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import UserCard from "./UserCard";
+
 import { UserType } from "../typings/user";
 
 interface UserListProps {
   users: UserType[];
+  delUser: (id: number) => void;
 }
 
 
@@ -13,7 +16,7 @@ const UserList: React.FC<UserListProps> = (props) => {
   // 引入国际化
   const { t } = useTranslation();
 
-  const { users } = props;
+  const { users, delUser } = props;
 
   return (
     <div className="user-list">
@@ -21,10 +24,7 @@ const UserList: React.FC<UserListProps> = (props) => {
       <h2>{t("userList")}</h2>
       {/* 渲染用户列表 */}
       {users.map(user => (
-        <div key={user.id} className="user-item">
-          <p><strong>{t("userName")}：</strong>{user.name}</p>
-          <p><strong>{t("userEmail")}：</strong>{user.email}</p>
-        </div>
+        <UserCard user={user} key={user.id} delUser={delUser} />
       ))}
     </div>
   );

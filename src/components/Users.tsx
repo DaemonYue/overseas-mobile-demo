@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import UserList from "./UserList";
 import UserForm from "./UserForm";
@@ -17,7 +18,7 @@ const _userList: UserType[] = [
 
 // 模拟 70% 成功，30% 失败
 const getData = () => {
-  const isSuccess = Math.random() > 0.8;
+  const isSuccess = Math.random() > 0.1;
   return new Promise<UserType[]>((resolve, reject) => {
     setTimeout(() => {
       if (isSuccess) {
@@ -25,12 +26,13 @@ const getData = () => {
       } else {
         reject('data error');
       }
-    }, 3000);
+    }, 3);
   });
 };
 
 
 const Users: React.FC = () => {
+  const { t } = useTranslation();
   const [status, setStatus] = useState<'loading' | 'error' | 'success'>('loading');
   const [userList, setUserList] = useState([] as UserType[]);
 
@@ -44,13 +46,21 @@ const Users: React.FC = () => {
     }
   }
 
+  // 初始化获取数据
   useEffect(() => {
     getUserData();
   }, []);
 
-
-  const setNewUser = (user: FormData) => {
+  // 新增用户
+  const addUser = (user: FormData) => {
     setUserList([...userList, { id: ++count, ...user }]);
+  }
+
+  // 删除用户
+  const delUser = (id: number) => {
+    if (!window.confirm(t('deleteConfirm'))) return;
+    const _users = userList.filter(user => user.id !== id);
+    setUserList(_users as UserType[]);
   }
 
   useEffect(() => {
@@ -60,9 +70,9 @@ const Users: React.FC = () => {
   return (
     <div className="user-container">
       {status === 'loading' && <Loading />}
-      {status === 'success' && <UserList users={userList} />}
+      {status === 'success' && <UserList users={userList} delUser={delUser} />}
       {status === 'error' && <ErrorPage />}
-      <UserForm setNewUser={(user: FormData) => setNewUser(user)} />
+      <UserForm setNewUser={(user: FormData) => addUser(user)} />
     </div>
   )
 };
